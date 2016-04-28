@@ -17,7 +17,7 @@ RUN echo "NETWORKING=yes" > /etc/sysconfig/network
 # install php
 RUN yum install -y php php-pgsql php-mysql php-devel php-gd php-pecl-memcache php-pspell php-snmp php-xmlrpc php-xml php-ldap php-imap php-mbstring
 
-# install supervisord
+# install pip
 RUN yum install -y python-pip && pip install "pip>=1.4,<1.5" --upgrade
 
 # install sshd
