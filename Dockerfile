@@ -25,6 +25,10 @@ RUN yum install -y python-pip && pip install "pip>=1.4,<1.5" --upgrade
 #RUN ssh-keygen -q -N "" -t dsa -f /etc/ssh/ssh_host_dsa_key && ssh-keygen -q -N "" -t rsa -f /etc/ssh/ssh_host_rsa_key 
 #RUN sed -ri 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config && echo 'root:changeme' | chpasswd
 
+# Clean yum
+RUN yum clean all
+
+# PHP Info
 ADD phpinfo.php /var/www/html/
 
 EXPOSE 80
