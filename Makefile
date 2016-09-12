@@ -1,10 +1,13 @@
 all: build tag push
 
+pull:
+	sudo docker pull centos:7
+
 build:
 	sudo docker build -t centos-lamp .
 
 tag:
-	sudo docker tag -f centos-lamp openmedicus/centos-lamp:latest
+	sudo docker tag centos-lamp openmedicus/centos-lamp:latest
 
 push:
 	sudo docker push openmedicus/centos-lamp
