@@ -4,7 +4,7 @@ pull:
 	sudo docker pull centos:7
 
 build:
-	sudo docker build -t centos-lamp .
+	sudo docker build --no-cache -t centos-lamp .
 
 tag:
 	sudo docker tag centos-lamp openmedicus/centos-lamp:latest
