@@ -1,16 +1,19 @@
+CENTOS=7
+PHP_VERSION=7.1
+
 all: pull build tag push
 
 pull:
-	sudo docker pull centos:7
+	podman pull centos:${CENTOS}
 
 build:
-	sudo docker build --no-cache -t centos-lamp .
+	podman build --format=docker --no-cache -t centos-lamp .
 
 tag:
-	sudo docker tag centos-lamp openmedicus/centos-lamp:latest
+	podman tag centos-lamp openmedicus/centos-lamp:${PHP_VERSION}
 
 push:
-	sudo docker push openmedicus/centos-lamp
+	podman push openmedicus/centos-lamp:${PHP_VERSION}
 
 run:
-	sudo docker run -i -t centos-lamp /bin/bash
+	podman run -i -t centos-lamp /bin/bash
